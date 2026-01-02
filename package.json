@@ -9,6 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@vercel/analytics": "^1.6.1",
         "html2canvas": "^1.4.1",
         "leaflet": "^1.9.4",
         "next": "14.1.0",
