@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'https://co-date.vercel.app'),
   title: "co-date | Your Birthday, Mapped ✨",
   description: "Every date has a coordinate. Enter your birthday and discover where in the world it lives. A fun, open-source experiment.",
   openGraph: {
