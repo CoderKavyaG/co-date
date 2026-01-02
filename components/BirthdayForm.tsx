@@ -51,6 +51,7 @@ export default function BirthdayForm() {
             onChange={(date: Date | null) => {
               setSelectedDate(date);
               setIsCalendarOpen(false);
+              setError("");
             }}
             onKeyDown={(e) => {
               if (

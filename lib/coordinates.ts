@@ -74,21 +74,21 @@ export function parseBirthdayFromUrl(params: URLSearchParams | any): Birthday | 
   const month = parseInt(params.get("m") || "");
   const year = parseInt(params.get("y") || "");
 
-  if (
-    !day ||
-    !month ||
-    !year ||
-    month < 1 ||
-    month > 12 ||
-    year < 1900 || // Reasonable lower bound
-    year > new Date().getFullYear() // Cannot be in future
-  ) {
+  // Basic validation
+  if (!day || !month || !year || day < 1 || month < 1 || month > 12 || year < 1 || year > 9999) {
     return null;
   }
 
-  // Check days in month
-  const daysInMonth = new Date(year, month, 0).getDate();
-  if (day < 1 || day > daysInMonth) {
+  // Days per month validation
+  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  // Check for leap year
+  const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  if (isLeapYear) {
+    daysInMonth[1] = 29;
+  }
+
+  if (day > daysInMonth[month - 1]) {
     return null;
   }
 
