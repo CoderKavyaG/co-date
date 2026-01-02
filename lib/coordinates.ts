@@ -78,13 +78,17 @@ export function parseBirthdayFromUrl(params: URLSearchParams | any): Birthday | 
     !day ||
     !month ||
     !year ||
-    day < 1 ||
-    day > 31 ||
     month < 1 ||
     month > 12 ||
-    year < 1 ||
-    year > 9999
+    year < 1900 || // Reasonable lower bound
+    year > new Date().getFullYear() // Cannot be in future
   ) {
+    return null;
+  }
+
+  // Check days in month
+  const daysInMonth = new Date(year, month, 0).getDate();
+  if (day < 1 || day > daysInMonth) {
     return null;
   }
 
