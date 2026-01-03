@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'https://co-date.vercel.app'),
   title: "co-date | Your Birthday, Mapped ✨",
   description: "Every date has a coordinate. Enter your birthday and discover where in the world it lives. A fun, open-source experiment.",
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     title: "co-date | Your Birthday, Mapped ✨",
     description: "Every date has a coordinate. Enter your birthday and discover where in the world it lives. A fun, open-source experiment.",
